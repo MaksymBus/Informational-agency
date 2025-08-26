@@ -30,3 +30,24 @@ class Redactor(AbstractUser):
     def __str__(self):
         return f"{self.username} {self.first_name} {self.last_name}"
 
+
+class Newspaper(models.Model):
+    title = models.CharField(
+        max_length=255
+    )
+    content = models.TextField(blank=True, default="")
+    published_date = models.DateField(auto_now_add=True)
+    topics = models.ManyToManyField(
+        Topic,
+        related_name="newspapers"
+    )
+    publishers = models.ManyToManyField(
+        Redactor,
+        related_name="newspapers"
+    )
+
+    class Meta:
+        ordering = ["-published_date"]
+
+    def __str__(self):
+        return f"{self.title} {self.published_date}"
