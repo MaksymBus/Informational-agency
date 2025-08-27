@@ -1,0 +1,126 @@
+[
+  {
+    "model": "manager_app.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "manager_app.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Science"
+    }
+  },
+  {
+    "model": "manager_app.topic",
+    "pk": 3,
+    "fields": {
+      "name": "World News"
+    }
+  },
+  {
+    "model": "manager_app.redactor",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$jQ6g4R5y8B2Q$6Q8zT9M0xY1Z2c3b4a5d6e7f8g9h0i1j2k3l4m5n6o7p8q9r0s1t2u3v4w5x6y7z",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Chief",
+      "last_name": "Editor",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-08-27T12:00:00Z",
+      "years_of_experience": 10,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "manager_app.redactor",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$jQ6g4R5y8B2Q$6Q8zT9M0xY1Z2c3b4a5d6e7f8g9h0i1j2k3l4m5n6o7p8q9r0s1t2u3v4w5x6y7z",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jane_doe",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-08-27T12:01:00Z",
+      "years_of_experience": 5,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "manager_app.redactor",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$jQ6g4R5y8B2Q$6Q8zT9M0xY1Z2c3b4a5d6e7f8g9h0i1j2k3l4m5n6o7p8q9r0s1t2u3v4w5x6y7z",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "john_smith",
+      "first_name": "John",
+      "last_name": "Smith",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-08-27T12:02:00Z",
+      "years_of_experience": 3,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "manager_app.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "New Tech Breakthrough",
+      "content": "A new AI model has been released...",
+      "published_date": "2025-08-20",
+      "topics": [
+        1,
+        2
+      ],
+      "publishers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "manager_app.newspaper",
+    "pk": 2,
+    "fields": {
+      "title": "Global Climate Accord Reached",
+      "content": "Leaders from around the world signed a landmark agreement...",
+      "published_date": "2025-08-25",
+      "topics": [
+        3,
+        2
+      ],
+      "publishers": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "manager_app.newspaper",
+    "pk": 3,
+    "fields": {
+      "title": "Quantum Computing Made Easy",
+      "content": "Experts explain the latest advances in quantum technology...",
+      "published_date": "2025-08-26",
+      "topics": [
+        1,
+        2
+      ],
+      "publishers": [
+        3
+      ]
+    }
+  }
+]
