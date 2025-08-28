@@ -34,7 +34,7 @@ def index(request):
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
-    context_object_name = "topic-list"
+    context_object_name = "topic_list"
     template_name = "manager_app/topic_list.html"
     paginate_by = 5
 
@@ -75,7 +75,7 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
-    context_object_name = "newspaper-list"
+    context_object_name = "newspaper_list"
     template_name = "manager_app/newspaper_list.html"
     paginate_by = 5
 
@@ -93,7 +93,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         queryset = Newspaper.objects.all()
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(name__icontains=form.cleaned_data["title"])
+            return queryset.filter(title__icontains=form.cleaned_data["title"])
         return queryset
 
 
@@ -120,7 +120,7 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = get_user_model()
-    context_object_name = "redactor-list"
+    context_object_name = "redactor_list"
     template_name = "manager_app/redactor_list.html"
     paginate_by = 5
 
@@ -139,7 +139,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
         form = RedactorSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(
-                name__icontains=form.cleaned_data["username"]
+                username__icontains=form.cleaned_data["username"]
             )
         return queryset
 
