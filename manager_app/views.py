@@ -47,3 +47,30 @@ class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Topic
     success_url = reverse_lazy("manager_app:topic-list")
+
+class NewspaperListView(LoginRequiredMixin, generic.ListView):
+    model = Newspaper
+    context_object_name = "newspaper-list"
+    template_name = "manager_app/newspaper_list.html"
+    paginate_by = 5
+
+
+class NewspaperCreatView(LoginRequiredMixin, generic.CreateView):
+    model = Newspaper
+    form_class = NewspaperForm
+    success_url = reverse_lazy("manager_app:newspaper-list")
+
+
+class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Newspaper
+    form_class = NewspaperForm
+    success_url = reverse_lazy("manager_app:newspaper-list")
+
+
+class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Newspaper
+    success_url = reverse_lazy("manager_app:newspaper-list")
+
+
+class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Newspaper
