@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.urls import reverse
 
 
 class Topic(models.Model):
@@ -28,6 +29,9 @@ class Redactor(AbstractUser):
     class Meta:
         verbose_name = "redactor"
         verbose_name_plural = "redactors"
+
+    def get_absolute_url(self):
+        return reverse("manager_app:redactor-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.username} {self.first_name} {self.last_name}"
