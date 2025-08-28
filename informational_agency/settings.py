@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "manager_app",
 ]
 
@@ -73,6 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "informational_agency.wsgi.application"
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
