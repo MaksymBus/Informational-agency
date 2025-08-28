@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -21,6 +22,7 @@ class Redactor(AbstractUser):
         default=0,
         blank=True,
         verbose_name="Years of Experience",
+        validators=[MinValueValidator(0)]
     )
 
     class Meta:
