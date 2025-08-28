@@ -6,8 +6,14 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from manager_app.forms import TopicForm, NewspaperForm, RedactorCreationForm, TopicSearchForm, NewspaperSearchForm, \
+from manager_app.forms import (
+    TopicForm,
+    NewspaperForm,
+    RedactorCreationForm,
+    TopicSearchForm,
+    NewspaperSearchForm,
     RedactorSearchForm
+)
 from manager_app.models import Topic, Redactor, Newspaper
 
 
@@ -132,7 +138,9 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
         queryset = get_user_model().objects.all()
         form = RedactorSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(name__icontains=form.cleaned_data["username"])
+            return queryset.filter(
+                name__icontains=form.cleaned_data["username"]
+            )
         return queryset
 
 
@@ -149,7 +157,9 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
-    queryset = get_user_model().objects.all().prefetch_related("newspapers__topics")
+    queryset = get_user_model().objects.all().prefetch_related(
+        "newspapers__topics"
+    )
 
 
 @login_required
@@ -159,4 +169,6 @@ def toggle_assign_to_newspaper(request, pk):
         redactor.newspapers.remove(pk)
     else:
         redactor.newspapers.add(pk)
-    return HttpResponseRedirect(reverse_lazy("manager_app:newspaper-detail", args=[pk]))
+    return HttpResponseRedirect(
+        reverse_lazy("manager_app:newspaper-detail", args=[pk])
+    )

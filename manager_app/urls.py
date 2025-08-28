@@ -10,9 +10,12 @@ from manager_app.views import (
     NewspaperCreatView,
     NewspaperUpdateView,
     NewspaperDeleteView,
-    NewspaperDetailView, RedactorListView, RedactorCreatView, RedactorDetailView, RedactorDeleteView,
+    NewspaperDetailView,
+    RedactorListView,
+    RedactorCreatView,
+    RedactorDetailView,
+    RedactorDeleteView,
     toggle_assign_to_newspaper,
-
 )
 
 urlpatterns = [
