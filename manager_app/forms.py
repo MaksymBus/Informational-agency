@@ -49,3 +49,16 @@ class TopicSearchForm(forms.Form):
             }
         )
     )
+
+
+class NewspaperSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by title"
+            }
+        )
+    )
