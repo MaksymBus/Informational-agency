@@ -4,9 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from manager_app.forms import TopicForm
+from manager_app.forms import TopicForm, NewspaperForm
 from manager_app.models import Topic, Redactor, Newspaper
-
 
 
 @login_required
@@ -15,7 +14,6 @@ def index(request):
     num_redactors = Redactor.objects.count()
     num_newspapers = Newspaper.objects.count()
 
-# Create your views here.
     context = {
         "num_topics": num_topics,
         "num_redactors": num_redactors,
@@ -47,6 +45,7 @@ class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Topic
     success_url = reverse_lazy("manager_app:topic-list")
+
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
