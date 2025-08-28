@@ -17,10 +17,11 @@ class NewspaperForm(forms.ModelForm):
         queryset=Topic.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
-    redactors = forms.ModelMultipleChoiceField(
+    publishers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
+
 
     class Meta:
         model = Newspaper
@@ -52,7 +53,7 @@ class TopicSearchForm(forms.Form):
 
 
 class NewspaperSearchForm(forms.Form):
-    name = forms.CharField(
+    title = forms.CharField(
         max_length=255,
         required=False,
         label="",
@@ -65,7 +66,7 @@ class NewspaperSearchForm(forms.Form):
 
 
 class RedactorSearchForm(forms.Form):
-    name = forms.CharField(
+    username = forms.CharField(
         max_length=255,
         required=False,
         label="",
