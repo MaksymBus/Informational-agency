@@ -11,6 +11,7 @@ from manager_app.views import (
     NewspaperUpdateView,
     NewspaperDeleteView,
     NewspaperDetailView, RedactorListView, RedactorCreatView, RedactorDetailView, RedactorDeleteView,
+    toggle_assign_to_newspaper,
 
 )
 
@@ -60,6 +61,11 @@ urlpatterns = [
         "newspapers/<int>:pk/delete/",
         NewspaperDeleteView.as_view(),
         name="newspaper-delete"
+    ),
+    path(
+        "newspapers/<int>:pk/toggle_assign",
+        toggle_assign_to_newspaper,
+        name="toggle-newspaper-assign"
     ),
     path(
         "redactors/",
