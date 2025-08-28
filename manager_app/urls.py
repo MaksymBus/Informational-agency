@@ -10,7 +10,7 @@ from manager_app.views import (
     NewspaperCreatView,
     NewspaperUpdateView,
     NewspaperDeleteView,
-    NewspaperDetailView,
+    NewspaperDetailView, RedactorListView, RedactorCreatView, RedactorDetailView, RedactorDeleteView,
 
 )
 
@@ -60,6 +60,26 @@ urlpatterns = [
         "newspapers/<int>:pk/delete/",
         NewspaperDeleteView.as_view(),
         name="newspaper-delete"
+    ),
+    path(
+        "redactors/",
+        RedactorListView.as_view(),
+        name="redactor-list"
+    ),
+    path(
+        "redactors/create/",
+        RedactorCreatView.as_view(),
+        name="redactor-create"
+    ),
+    path(
+        "redactors/<int>:pk/",
+        RedactorDetailView.as_view(),
+        name="redactor-detail"
+    ),
+    path(
+        "redactors/<int>:pk/delete/",
+        RedactorDeleteView.as_view(),
+        name="redactor-delete"
     ),
 ]
 
