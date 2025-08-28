@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from manager_app.forms import TopicForm
 from manager_app.models import Topic, Redactor, Newspaper
 
 
@@ -20,3 +23,27 @@ def index(request):
     }
 
     return render(request, "manager_app/index.html", context=context)
+
+
+class TopicListView(LoginRequiredMixin, generic.ListView):
+    model = Topic
+    context_object_name = "topic-list"
+    template_name = "manager_app/topic_list.html"
+    paginate_by = 5
+
+
+class TopicCreatView(LoginRequiredMixin, generic.CreateView):
+    model = Topic
+    form_class = TopicForm
+    success_url = reverse_lazy("manager_app:topic-list")
+
+
+class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Topic
+    form_class = TopicForm
+    success_url = reverse_lazy("manager_app:topic-list")
+
+
+class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Topic
+    success_url = reverse_lazy("manager_app:topic-list")
