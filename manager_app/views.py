@@ -17,7 +17,6 @@ from manager_app.forms import (
 from manager_app.models import Topic, Redactor, Newspaper
 
 
-@login_required
 def index(request):
     num_topics = Topic.objects.count()
     num_redactors = Redactor.objects.count()
