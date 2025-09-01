@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -17,15 +18,17 @@
   <link href="{{ ASSETS_ROOT }}/css/nucleo-icons.css" rel="stylesheet" />
   <link href="{{ ASSETS_ROOT }}/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ ASSETS_ROOT }}/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+  <link href="{% static 'css/custom_borders.css' %}" rel="stylesheet" />
 
 </head>
 
-<body>
+<body class="bg-gray-200">
 <div class="container-fluid">
   <div class="row">
     {% block content %}{% endblock %}
