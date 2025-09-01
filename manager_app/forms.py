@@ -22,7 +22,6 @@ class NewspaperForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple
     )
 
-
     class Meta:
         model = Newspaper
         fields = "__all__"
