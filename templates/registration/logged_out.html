@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Logged out!</p>
+  {% include "includes/navigation.html" %}
+  <div class="pt-7">
+    <p>Logged out!</p>
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+    <a href="{% url 'login'%}">Click here to login again.</a>
+  </div>
 {% endblock %}
