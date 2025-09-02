@@ -15,7 +15,7 @@ from manager_app.views import (
     RedactorCreatView,
     RedactorDetailView,
     RedactorDeleteView,
-    toggle_assign_to_newspaper,
+    ToggleAssignToNewspaper
 )
 
 urlpatterns = [
@@ -67,7 +67,7 @@ urlpatterns = [
     ),
     path(
         "newspapers/<int:pk>/toggle_assign",
-        toggle_assign_to_newspaper,
+        ToggleAssignToNewspaper.as_view(),
         name="toggle-newspaper-assign"
     ),
     path(

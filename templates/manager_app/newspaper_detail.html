@@ -23,16 +23,22 @@
     <p><strong>Title:</strong> {{ newspaper.title }}</p>
     <p><strong>Published date:</strong> {{ newspaper.published_date }}</p>
     <h2>
-      Publishers
+      Publishers:
 
       {% if newspaper in user.newspapers.all %}
-        <a href="{% url 'manager_app:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-danger link-to-page">
-          Delete me from this newspaper
-        </a>
+        <form action="{% url 'manager_app:toggle-newspaper-assign' pk=newspaper.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">
+            Delete me from this newspaper
+          </button>
+        </form>
       {% else %}
-        <a href="{% url 'manager_app:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-success link-to-page">
-          Assign me from this newspaper
-        </a>
+        <form action="{% url 'manager_app:toggle-newspaper-assign' pk=newspaper.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success">
+            Assign me from this newspaper
+          </button>
+        </form>
       {% endif %}
 
     </h2>
