@@ -108,7 +108,7 @@ python manage.py runserver # http://127.0.0.1:8000/
 Technologies used in the project:
 
 *   Backend: Django (Python)
-*   Database: PostgresSQL (or SQLite for development)
+*   Database: PostgreSQL (or SQLite for development)
 *   Frontend: Django templates
 *   Authentication: Django Authentication System
 *   Styles: Bootstrap 4
