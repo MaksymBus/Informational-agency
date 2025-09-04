@@ -8,6 +8,8 @@ The application allows for a clear separation of content by topics and provides 
 
 ## 🚀 Try it out
 
+https://informational-agency-digital-horizon.onrender.com
+
 Use the following user to log in and check the functionality of the website:
 
 - **Note:** to test site you can take default-user
@@ -61,7 +63,7 @@ source venv/bin/activate
 
 ```
 
-3. Install requirments.txt 
+3. Install requirements.txt 
 
 ```shell
 
