@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  {% include "includes/navigation.html" %}
+  <div class="pt-7">
+    <h1>{{ object|yesno:"Update,Create" }} newspaper</h1>
+    <form class="form-container-border" action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  </div>
+{% endblock %}
